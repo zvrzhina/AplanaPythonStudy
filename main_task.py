@@ -42,8 +42,10 @@ class Search(unittest.TestCase):
         first_pic_el = self.driver.find_element(By.XPATH, "(.//span[@class='irc_ho'])[2]")
         assert first_pic_el.text == 'ru.selenide.org'
         self.driver.find_element(By.XPATH, './/a[@aria-label="Закрыть"]').click()
+
         # Step 6 Вернуться в раздел поиска
         self.driver.find_element(By.XPATH, './/a[text()="Все"]').click()
+        
         # Step 7 Проверить, что первый результат такой же, как и на шаге 3.
         first_result_el = self.driver.find_element(By.XPATH, './/div[@class="s"]/descendant::cite')
         assert first_result_el.text == 'ru.selenide.org/'
